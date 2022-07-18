@@ -21,6 +21,16 @@ public class CreateTransitVehicles {
             vehicles.addVehicle(vehicle);
         }
 
+        EngineInformation engineInformation = type.getEngineInformation();
+        VehicleUtils.setHbefaVehicleCategory(engineInformation, "urban bus");
+        VehicleUtils.setHbefaTechnology(engineInformation, "average");
+        VehicleUtils.setHbefaSizeClass(engineInformation, "average");
+        VehicleUtils.setHbefaEmissionsConcept(engineInformation, "average");
+
+        new MatsimVehicleWriter(vehicles).writeFile("scenarios/emissions/expressBusVehicles.xml");
+
+
+
         
     }
 }

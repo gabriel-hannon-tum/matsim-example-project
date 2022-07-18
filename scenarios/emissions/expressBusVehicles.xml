@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vehicleDefinitions xmlns="http://www.matsim.org/files/dtd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.matsim.org/files/dtd http://www.matsim.org/files/dtd/vehicleDefinitions_v2.0.xsd">
+
+	<vehicleType id="ExpressBus">
+
+		<capacity seats="30" standingRoomInPersons="30">
+
+		</capacity>
+		<length meter="7.5"/>
+		<width meter="1.0"/>
+		<engineInformation>
+			<attributes>
+				<attribute name="HbefaEmissionsConcept" class="java.lang.String">average</attribute>
+				<attribute name="HbefaSizeClass" class="java.lang.String">average</attribute>
+				<attribute name="HbefaTechnology" class="java.lang.String">average</attribute>
+				<attribute name="HbefaVehicleCategory" class="java.lang.String">urban bus</attribute>
+			</attributes>
+		</engineInformation>
+		<costInformation>
+
+		</costInformation>
+		<passengerCarEquivalents pce="1.0"/>
+		<networkMode networkMode="bus"/>
+		<flowEfficiencyFactor factor="1.0"/>
+	</vehicleType>
+
+	<vehicle id="departure_28800" type="ExpressBus"/>
+	<vehicle id="departure_29100" type="ExpressBus"/>
+	<vehicle id="departure_29400" type="ExpressBus"/>
+	<vehicle id="departure_29700" type="ExpressBus"/>
+	<vehicle id="departure_30000" type="ExpressBus"/>
+	<vehicle id="departure_30300" type="ExpressBus"/>
+	<vehicle id="departure_30600" type="ExpressBus"/>
+	<vehicle id="departure_30900" type="ExpressBus"/>
+	<vehicle id="departure_31200" type="ExpressBus"/>
+	<vehicle id="departure_31500" type="ExpressBus"/>
+	<vehicle id="departure_31800" type="ExpressBus"/>
+	<vehicle id="departure_32100" type="ExpressBus"/>
+	<vehicle id="departure_32400" type="ExpressBus"/>
+	<vehicle id="departure_32700" type="ExpressBus"/>
+	<vehicle id="departure_33000" type="ExpressBus"/>
+	<vehicle id="departure_33300" type="ExpressBus"/>
+	<vehicle id="departure_33600" type="ExpressBus"/>
+	<vehicle id="departure_33900" type="ExpressBus"/>
+	<vehicle id="departure_34200" type="ExpressBus"/>
+	<vehicle id="departure_34500" type="ExpressBus"/>
+	<vehicle id="departure_34800" type="ExpressBus"/>
+	<vehicle id="departure_35100" type="ExpressBus"/>
+	<vehicle id="departure_35400" type="ExpressBus"/>
+	<vehicle id="departure_35700" type="ExpressBus"/>
+	<vehicle id="departure_36000" type="ExpressBus"/>
+	<vehicle id="departure_36300" type="ExpressBus"/>
+	<vehicle id="departure_36600" type="ExpressBus"/>
+	<vehicle id="departure_36900" type="ExpressBus"/>
+	<vehicle id="departure_37200" type="ExpressBus"/>
+	<vehicle id="departure_37500" type="ExpressBus"/>
+	<vehicle id="departure_37800" type="ExpressBus"/>
+	<vehicle id="departure_38100" type="ExpressBus"/>
+	<vehicle id="departure_38400" type="ExpressBus"/>
+	<vehicle id="departure_38700" type="ExpressBus"/>
+	<vehicle id="departure_39000" type="ExpressBus"/>
+	<vehicle id="departure_39300" type="ExpressBus"/>
+	<vehicle id="departure_39600" type="ExpressBus"/>
+	<vehicle id="departure_39900" type="ExpressBus"/>
+	<vehicle id="departure_40200" type="ExpressBus"/>
+	<vehicle id="departure_40500" type="ExpressBus"/>
+	<vehicle id="departure_40800" type="ExpressBus"/>
+	<vehicle id="departure_41100" type="ExpressBus"/>
+	<vehicle id="departure_41400" type="ExpressBus"/>
+	<vehicle id="departure_41700" type="ExpressBus"/>
+	<vehicle id="departure_42000" type="ExpressBus"/>
+	<vehicle id="departure_42300" type="ExpressBus"/>
+	<vehicle id="departure_42600" type="ExpressBus"/>
+	<vehicle id="departure_42900" type="ExpressBus"/>
+	<vehicle id="departure_43200" type="ExpressBus"/>
+	<vehicle id="departure_43500" type="ExpressBus"/>
+	<vehicle id="departure_43800" type="ExpressBus"/>
+	<vehicle id="departure_44100" type="ExpressBus"/>
+	<vehicle id="departure_44400" type="ExpressBus"/>
+	<vehicle id="departure_44700" type="ExpressBus"/>
+	<vehicle id="departure_45000" type="ExpressBus"/>
+	<vehicle id="departure_45300" type="ExpressBus"/>
+	<vehicle id="departure_45600" type="ExpressBus"/>
+	<vehicle id="departure_45900" type="ExpressBus"/>
+	<vehicle id="departure_46200" type="ExpressBus"/>
+	<vehicle id="departure_46500" type="ExpressBus"/>
+	<vehicle id="departure_46800" type="ExpressBus"/>
+	<vehicle id="departure_47100" type="ExpressBus"/>
+	<vehicle id="departure_47400" type="ExpressBus"/>
+	<vehicle id="departure_47700" type="ExpressBus"/>
+	<vehicle id="departure_48000" type="ExpressBus"/>
+	<vehicle id="departure_48300" type="ExpressBus"/>
+	<vehicle id="departure_48600" type="ExpressBus"/>
+	<vehicle id="departure_48900" type="ExpressBus"/>
+	<vehicle id="departure_49200" type="ExpressBus"/>
+	<vehicle id="departure_49500" type="ExpressBus"/>
+	<vehicle id="departure_49800" type="ExpressBus"/>
+	<vehicle id="departure_50100" type="ExpressBus"/>
+	<vehicle id="departure_50400" type="ExpressBus"/>
+	<vehicle id="departure_50700" type="ExpressBus"/>
+	<vehicle id="departure_51000" type="ExpressBus"/>
+	<vehicle id="departure_51300" type="ExpressBus"/>
+	<vehicle id="departure_51600" type="ExpressBus"/>
+	<vehicle id="departure_51900" type="ExpressBus"/>
+	<vehicle id="departure_52200" type="ExpressBus"/>
+	<vehicle id="departure_52500" type="ExpressBus"/>
+	<vehicle id="departure_52800" type="ExpressBus"/>
+	<vehicle id="departure_53100" type="ExpressBus"/>
+	<vehicle id="departure_53400" type="ExpressBus"/>
+	<vehicle id="departure_53700" type="ExpressBus"/>
+	<vehicle id="departure_54000" type="ExpressBus"/>
+	<vehicle id="departure_54300" type="ExpressBus"/>
+	<vehicle id="departure_54600" type="ExpressBus"/>
+	<vehicle id="departure_54900" type="ExpressBus"/>
+	<vehicle id="departure_55200" type="ExpressBus"/>
+	<vehicle id="departure_55500" type="ExpressBus"/>
+	<vehicle id="departure_55800" type="ExpressBus"/>
+	<vehicle id="departure_56100" type="ExpressBus"/>
+	<vehicle id="departure_56400" type="ExpressBus"/>
+	<vehicle id="departure_56700" type="ExpressBus"/>
+	<vehicle id="departure_57000" type="ExpressBus"/>
+	<vehicle id="departure_57300" type="ExpressBus"/>
+	<vehicle id="departure_57600" type="ExpressBus"/>
+	<vehicle id="departure_57900" type="ExpressBus"/>
+	<vehicle id="departure_58200" type="ExpressBus"/>
+	<vehicle id="departure_58500" type="ExpressBus"/>
+	<vehicle id="departure_58800" type="ExpressBus"/>
+	<vehicle id="departure_59100" type="ExpressBus"/>
+	<vehicle id="departure_59400" type="ExpressBus"/>
+	<vehicle id="departure_59700" type="ExpressBus"/>
+	<vehicle id="departure_60000" type="ExpressBus"/>
+	<vehicle id="departure_60300" type="ExpressBus"/>
+	<vehicle id="departure_60600" type="ExpressBus"/>
+	<vehicle id="departure_60900" type="ExpressBus"/>
+	<vehicle id="departure_61200" type="ExpressBus"/>
+	<vehicle id="departure_61500" type="ExpressBus"/>
+	<vehicle id="departure_61800" type="ExpressBus"/>
+	<vehicle id="departure_62100" type="ExpressBus"/>
+	<vehicle id="departure_62400" type="ExpressBus"/>
+	<vehicle id="departure_62700" type="ExpressBus"/>
+	<vehicle id="departure_63000" type="ExpressBus"/>
+	<vehicle id="departure_63300" type="ExpressBus"/>
+	<vehicle id="departure_63600" type="ExpressBus"/>
+	<vehicle id="departure_63900" type="ExpressBus"/>
+	<vehicle id="departure_64200" type="ExpressBus"/>
+	<vehicle id="departure_64500" type="ExpressBus"/>
+	<vehicle id="departure_64800" type="ExpressBus"/>
+	<vehicle id="departure_65100" type="ExpressBus"/>
+	<vehicle id="departure_65400" type="ExpressBus"/>
+	<vehicle id="departure_65700" type="ExpressBus"/>
+	<vehicle id="departure_66000" type="ExpressBus"/>
+	<vehicle id="departure_66300" type="ExpressBus"/>
+	<vehicle id="departure_66600" type="ExpressBus"/>
+	<vehicle id="departure_66900" type="ExpressBus"/>
+	<vehicle id="departure_67200" type="ExpressBus"/>
+	<vehicle id="departure_67500" type="ExpressBus"/>
+	<vehicle id="departure_67800" type="ExpressBus"/>
+	<vehicle id="departure_68100" type="ExpressBus"/>
+	<vehicle id="departure_68400" type="ExpressBus"/>
+	<vehicle id="departure_68700" type="ExpressBus"/>
+	<vehicle id="departure_69000" type="ExpressBus"/>
+	<vehicle id="departure_69300" type="ExpressBus"/>
+	<vehicle id="departure_69600" type="ExpressBus"/>
+	<vehicle id="departure_69900" type="ExpressBus"/>
+	<vehicle id="departure_70200" type="ExpressBus"/>
+	<vehicle id="departure_70500" type="ExpressBus"/>
+	<vehicle id="departure_70800" type="ExpressBus"/>
+	<vehicle id="departure_71100" type="ExpressBus"/>
+	<vehicle id="departure_71400" type="ExpressBus"/>
+	<vehicle id="departure_71700" type="ExpressBus"/>
+		
+
+</vehicleDefinitions>
