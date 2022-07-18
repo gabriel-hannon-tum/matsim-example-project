@@ -21,11 +21,11 @@ public class ConfigGenerator {
         EmissionsConfigGroup ecg = new EmissionsConfigGroup();
         controler.getConfig().addModule(ecg);
 
-        ecg.setHbefaRoadTypeSource(EmissionsConfigGroup.HbefaRoadTypeSource.fromLinkAttributes);
-        ecg.setHbefaVehicleDescriptionSource( EmissionsConfigGroup.HbefaVehicleDescriptionSource.asEngineInformationAttributes );
-        ecg.setAverageWarmEmissionFactorsFile(averageFleetWarmEmissionFactorsFile);
-        ecg.setAverageColdEmissionFactorsFile(averageFleetColdEmissionFactorsFile);
-        ecg.setDetailedVsAverageLookupBehavior(EmissionsConfigGroup.DetailedVsAverageLookupBehavior.directlyTryAverageTable);
-        ecg.setWritingEmissionsEvents(true);
+//        ecg.setHbefaRoadTypeSource(EmissionsConfigGroup.HbefaRoadTypeSource.fromLinkAttributes);
+//        ecg.setHbefaVehicleDescriptionSource( EmissionsConfigGroup.HbefaVehicleDescriptionSource.asEngineInformationAttributes );
+//        ecg.setAverageWarmEmissionFactorsFile(averageFleetWarmEmissionFactorsFile);
+//        ecg.setAverageColdEmissionFactorsFile(averageFleetColdEmissionFactorsFile);
+//        ecg.setDetailedVsAverageLookupBehavior(EmissionsConfigGroup.DetailedVsAverageLookupBehavior.directlyTryAverageTable);
+//        ecg.setWritingEmissionsEvents(true);
     }
 }
