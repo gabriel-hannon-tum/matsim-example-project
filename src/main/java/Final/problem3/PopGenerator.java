@@ -80,10 +80,13 @@ public class PopGenerator {
             String mode = "car";
 
             Coord homeCoord = drawRandomPointFromGeometry(home);
-            homeCoord = ct.transform(homeCoord);
+            //System.out.println("Pre transform" + homeCoord);
+            //homeCoord = ct.transform(homeCoord);
+            //System.out.println("Transformed" + homeCoord);
+
 
             Coord workCoord = drawRandomPointFromGeometry(work);
-            workCoord = ct.transform(workCoord);
+           // workCoord = ct.transform(workCoord);
 
             createOneCommuter(i, homeCoord, workCoord, mode, odPrefix);
         }
