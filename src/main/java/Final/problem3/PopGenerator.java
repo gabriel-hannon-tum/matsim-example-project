@@ -8,6 +8,7 @@ import org.locationtech.jts.io.WKTReader;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
+import org.matsim.api.core.v01.TransportMode;
 import org.matsim.api.core.v01.population.*;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.gbl.MatsimRandom;
@@ -24,7 +25,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 
 public class PopGenerator {
     //Paths to input and output files and column name of zone id
@@ -32,6 +32,9 @@ public class PopGenerator {
     private static final String ZONE_FILE = "scenarios/final/ebersberg/inputs/georef-germany-kreis/georef-germany-kreis-millesime.shp";
     private static final String ZONE_ID = "krs_code";
     private static final String OUTPUT_FILE = "./scenarios/final/ebersberg/commuterPopulation.xml";
+    private static final double SCALE_FACTOR = 0.1;
+    private static final double MODE_SPLIT_CAR = 0.9;
+    private static final Random rand1 = new Random(1);
     //Object to convert CRS
     private static final CoordinateTransformation ct = TransformationFactory.
             getCoordinateTransformation(TransformationFactory.WGS84, TransformationFactory.DHDN_GK4);
@@ -61,8 +64,7 @@ public class PopGenerator {
             {
                 String[] row = line.split(splitBy);
                 //use comma as separator
-                System.out.println(row);
-                int count = Integer.parseInt(row[4])/10;
+                int count = (int) (Integer.parseInt(row[4])*SCALE_FACTOR);
                 createOD(count, row[0],row[2],row[5]);
             }
         }
@@ -77,16 +79,19 @@ public class PopGenerator {
         Geometry work = shapeMap.get(destination);
 
         for (int i = 1; i <= commuter; i++) {
-            String mode = "car";
+            String mode;
+
+            if(rand1.nextDouble() < MODE_SPLIT_CAR){
+                mode = "car";
+            }
+            else{
+                mode = "teleTransit";
+            }
 
             Coord homeCoord = drawRandomPointFromGeometry(home);
-            //System.out.println("Pre transform" + homeCoord);
-            //homeCoord = ct.transform(homeCoord);
-            //System.out.println("Transformed" + homeCoord);
 
 
             Coord workCoord = drawRandomPointFromGeometry(work);
-           // workCoord = ct.transform(workCoord);
 
             createOneCommuter(i, homeCoord, workCoord, mode, odPrefix);
         }
@@ -97,6 +102,7 @@ public class PopGenerator {
     private static void createOneCommuter(int i, Coord homeCoord, Coord workCoord, String mode, String odPrefix) {
         double departureTimeVariance = 2 * Math.random() * 60 * 60;
         double durationTimeVariance = Math.pow(-1,(int)Math.round(Math.random())) * 2 * Math.random() * 60 * 60;
+
 
         Id<Person> personId = Id.createPersonId(odPrefix + "_" + i);
         Person person = scenario.getPopulation().getFactory().createPerson(personId);
@@ -110,6 +116,7 @@ public class PopGenerator {
         plan.addActivity(home);
 
         Leg legToWork = scenario.getPopulation().getFactory().createLeg(mode);
+
         plan.addLeg(legToWork);
 
         Activity work = scenario.getPopulation().getFactory().createActivityFromCoord("work", workCoord);

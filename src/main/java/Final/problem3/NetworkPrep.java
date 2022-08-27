@@ -12,10 +12,10 @@ public class NetworkPrep {
         public static void main(String[] args) {
             Network network = NetworkUtils.createNetwork();
             MatsimNetworkReader reader = new MatsimNetworkReader(network);
-            reader.readFile("scenarios/final/ebersberg/combined_region.xml");
+            reader.readFile("scenarios/final/ebersberg/combinedRegion.xml");
 
 
-            new NetworkWriter(network).write("scenarios/final/ebersberg/compiled_network.xml");
+            new NetworkWriter(network).write("scenarios/final/ebersberg/compiledNetwork.xml");
         }
     }
 

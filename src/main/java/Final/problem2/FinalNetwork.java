@@ -91,18 +91,18 @@ public class FinalNetwork {
             i.setNumberOfLanes(2);
             i.setCapacity(3600);
         }
-//        Link link8 = networkFactory.createLink(Id.createLinkId("link8"), nodeD, nodeE);
-//        link8.setLength(6000+STUDENT_ID);
-//        emptyNetwork.addLink(link8);
-//        link8.setFreespeed(FREESPEED);
-//        link8.setAllowedModes(Collections.singleton("car"));
-//        link8.setNumberOfLanes(1);
-//        link8.setCapacity(1800);
+        Link link8 = networkFactory.createLink(Id.createLinkId("link8"), nodeD, nodeE);
+        link8.setLength(6000+STUDENT_ID);
+        emptyNetwork.addLink(link8);
+        link8.setFreespeed(FREESPEED);
+        link8.setAllowedModes(Collections.singleton("car"));
+        link8.setNumberOfLanes(1);
+        link8.setCapacity(1800);
 
 
 
         NetworkWriter writer = new NetworkWriter(emptyNetwork);
-        writer.write("scenarios/final/finalNetwork.xml");
+        writer.write("scenarios/final/problem2/finalNetwork.xml");
 
     }
 

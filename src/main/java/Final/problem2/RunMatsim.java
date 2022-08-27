@@ -18,11 +18,18 @@ package Final.problem2;
  *                                                                         *
  * *********************************************************************** */
 
+import com.google.common.collect.Sets;
 import org.matsim.api.core.v01.Scenario;
+import org.matsim.api.core.v01.TransportMode;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
+import org.matsim.core.config.ConfigWriter;
+import org.matsim.core.config.groups.PlanCalcScoreConfigGroup;
+import org.matsim.core.config.groups.StrategyConfigGroup;
 import org.matsim.core.controler.Controler;
+import org.matsim.core.controler.OutputDirectoryHierarchy;
 import org.matsim.core.controler.OutputDirectoryHierarchy.OverwriteFileSetting;
+import org.matsim.core.replanning.strategies.DefaultPlanStrategiesModule;
 import org.matsim.core.scenario.ScenarioUtils;
 
 /**
@@ -34,26 +41,66 @@ public class RunMatsim {
     public static void main(String[] args) {
 
         Config config;
-        if ( args==null || args.length==0 || args[0]==null ){
-            //coming in to see if i cant run the thingy
-            config = ConfigUtils.loadConfig( "scenarios/final/config.xml" );
-        } else {
-            config = ConfigUtils.loadConfig( args );
+        config = ConfigUtils.createConfig("scenarios/final/problem2");
+
+        config.global().setRandomSeed(1000);
+        config.qsim().setStartTime(0);
+        config.qsim().setEndTime(24*60*60-1);
+
+        config.controler().setFirstIteration(0);
+        config.controler().setLastIteration(10);
+        config.controler().setOutputDirectory("output/problem2");
+        config.controler().setOverwriteFileSetting(OutputDirectoryHierarchy.OverwriteFileSetting.deleteDirectoryIfExists);
+
+
+        {
+            PlanCalcScoreConfigGroup.ActivityParams act = new PlanCalcScoreConfigGroup.ActivityParams();
+            act.setActivityType("dummy");
+            act.setTypicalDuration(11 * 60 * 60);
+            config.planCalcScore().addActivityParams(act);
         }
+        config.strategy().setFractionOfIterationsToDisableInnovation(.9);
+        config.strategy().addParam("ModuleProbability_1", "0.85");
+        config.strategy().addParam("Module_1", "ChangeExpBeta");
+        config.strategy().addParam("ModuleProbability_2", "0.33750576");
+        config.strategy().addParam("Module_2", "ReRoute");
 
-        config.controler().setOverwriteFileSetting( OverwriteFileSetting.deleteDirectoryIfExists );
+//        {
+//            StrategyConfigGroup.StrategySettings strategySettings = new StrategyConfigGroup.StrategySettings();
+//            strategySettings.setWeight(0.85);
+//            strategySettings.setStrategyName("ChangeExpBeta");
+//            config.strategy().addStrategySettings(strategySettings);
+//        }
+//        {
+//            StrategyConfigGroup.StrategySettings strategySettings = new StrategyConfigGroup.StrategySettings();
+//            strategySettings.setWeight(0.33750576);
+//            strategySettings.setStrategyName("ReRoute");
+//            config.strategy().addStrategySettings(strategySettings);
+//        }
+        config.controler().setWriteEventsInterval(10);
 
-        // possibly modify config here
+        config.planCalcScore().setBrainExpBeta(2.);
 
-        // ---
 
-        Scenario scenario = ScenarioUtils.loadScenario(config) ;
+
+
+
+        config.network().setInputFile("finalNetwork.xml");
+        config.plans().setInputFile("finalPop.xml");
+
+
+
+
+
+
+        Scenario scenario = ScenarioUtils.loadScenario(config);
 
         // possibly modify scenario here
 
+
         // ---
 
-        Controler controler = new Controler( scenario ) ;
+        Controler controler = new Controler(scenario);
 
         // possibly modify controler here
 
@@ -63,6 +110,7 @@ public class RunMatsim {
         // ---
 
         controler.run();
+//        new ConfigWriter(config).write("scenarios/final/problem2/config2.xml");
     }
 
 }
