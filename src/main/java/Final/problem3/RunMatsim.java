@@ -51,6 +51,8 @@ public class RunMatsim {
 
         config.qsim().setFlowCapFactor(0.1);
         config.qsim().setStorageCapFactor(0.3);
+        config.strategy().setFractionOfIterationsToDisableInnovation(.9);
+
         {
             PlanCalcScoreConfigGroup.ActivityParams act = new PlanCalcScoreConfigGroup.ActivityParams();
             act.setActivityType("home");
@@ -73,7 +75,6 @@ public class RunMatsim {
         config.planCalcScore().setLateArrival_utils_hr(-18.);
         config.planCalcScore().setPerforming_utils_hr(6.);
 
-
         {
             StrategyConfigGroup.StrategySettings strategySettings = new StrategyConfigGroup.StrategySettings();
             strategySettings.setWeight(0.9);
@@ -86,6 +87,13 @@ public class RunMatsim {
             strategySettings.setWeight(0.15);
             strategySettings.setStrategyName("ReRoute");
             config.strategy().addStrategySettings(strategySettings);
+        }
+
+        {
+            StrategyConfigGroup.StrategySettings strat = new StrategyConfigGroup.StrategySettings();
+            strat.setStrategyName(DefaultPlanStrategiesModule.DefaultSelector.ChangeExpBeta.toString());
+            strat.setWeight(0.9);
+            config.strategy().addStrategySettings(strat);
         }
 
 
