@@ -24,6 +24,7 @@ public class congestionHandler implements LinkEnterEventHandler,
     private Map<Id<Vehicle>,Double> earliestLinkExitTime = new HashMap<>() ;
     private Network network;
     private int delays = 0;
+    private int tenDelays = 0;
 
     public congestionHandler(Network network ) {
         this.network = network ;
@@ -49,6 +50,9 @@ public class congestionHandler implements LinkEnterEventHandler,
                 //System.out.println("excess travel time: " + excessTravelTime);
                 delays += 1;
             }
+            if(excessTravelTime > 600){
+                tenDelays += 1;
+            }
         }
 
     }
@@ -61,4 +65,5 @@ public class congestionHandler implements LinkEnterEventHandler,
     public int getDelays(){
         return delays;
     }
+    public int getTenDelays(){return tenDelays;}
 }

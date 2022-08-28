@@ -22,18 +22,30 @@ public class eventManagerCongestion {
 
             new MatsimEventsReader(manager).readFile("output/ebersberg/base/output_events.xml.gz");
             System.out.println("Total delays of over a minute: " + congestionHandler.getDelays());
+            System.out.println("Total delays of over 10 minutes: " + congestionHandler.getTenDelays());
+
         }
 
         {
             Network network = NetworkUtils.createNetwork();
-            new MatsimNetworkReader(network).readFile("output/ebersberg/withGTFS/output_network.xml.gz");
+            new MatsimNetworkReader(network).readFile("output/ebersberg/drt/output_network.xml.gz");
             congestionHandler congestionHandler = new congestionHandler(network);
             manager.addHandler(congestionHandler);
 
-            new MatsimEventsReader(manager).readFile("output/ebersberg/withGTFS/output_events.xml.gz");
+            new MatsimEventsReader(manager).readFile("output/ebersberg/drt/output_events.xml.gz");
             System.out.println("Total delays of over a minute with PT: " + congestionHandler.getDelays());
+            System.out.println("Total delays of over 10 minutes: " + congestionHandler.getTenDelays());
         }
 
+        {
+            Network network = NetworkUtils.createNetwork();
+            new MatsimNetworkReader(network).readFile("output/ebersberg/drt/output_network.xml.gz");
+            congestionHandler congestionHandler = new congestionHandler(network);
+            manager.addHandler(congestionHandler);
 
+            new MatsimEventsReader(manager).readFile("output/ebersberg/DRT/ITERS/it.0/0.events.xml.gz");
+            System.out.println("Total delays of over a minute with PT: " + congestionHandler.getDelays());
+            System.out.println("Total delays of over 10 minutes: " + congestionHandler.getTenDelays());
+        }
 }
 }
